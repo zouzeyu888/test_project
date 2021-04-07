@@ -1,0 +1,11 @@
+*{margin: 0;padding: 0;}
+li{list-style: none;}
+image{border: none;}
+
+.play{width: 470px;height: 150px;overflow: hidden; position: relative;border: 1px solid black; margin: 150px auto 0px;}
+ol{position: absolute;right: 5px;bottom: 10px;z-index: 2;}
+ol li{float: left;background: chocolate;margin-right: 5px;cursor: pointer; display: inline;width: 20px; height: 20px;text-align: center;}
+ul{position: absolute;top: 0;left: 0;z-index: 1;}
+ul li{width: 470px;height: 150px;}
+ul img{width: 470px;height: 150px;}
+.active{padding: 3px 8px; color: white;background: turquoise;}

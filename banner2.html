@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="css2.css" type="text/css">
+    <script>
+        $(function(){
+            var aBtns = $("#play ol li");
+            var oUl = $("#play ul");
+            var aLis = oUl.find('li');
+            var iNow = 0;
+            var timer = null;
+            aBtns.click(function(){
+                iNow = $(this).index();
+                tab();
+
+            })
+            /* alert(aBtns.length) */
+            $("#play").mouseenter(function(){
+                clearInterval(timer);
+            }).mouseleave(function(){
+                    timer = setInterval(function(){
+                    iNow++;
+                    tab();
+                },2000);
+            })
+
+            timer = setInterval(function(){
+                iNow++;
+                tab();
+            },2000);
+            
+            function tab(){
+              
+
+                aBtns.attr("class",'').eq(iNow).attr("class",'active');
+                if(iNow == aBtns.length){
+                    aBtns.eq(0).attr("class","active");
+                }
+                oUl.animate({
+                    top : -150 * iNow
+                },200,function(){
+                    if(iNow == aBtns.length){
+                            iNow = 0;
+                            oUl.css("top",0);
+                    }
+                });
+            }
+        })
+        
+    </script>
+</head>
+<body>
+    <div id="play" class="play">
+        <ol>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <ul>
+            <li><img src="./img/1.jpg" alt="广告一"></li>
+            <li><img src="./img/2.jpg" alt="广告二"></li>
+            <li><img src="./img/3.jpg" alt="广告三"></li>
+            <li><img src="./img/4.jpg" alt="广告四"></li>
+            <li><img src="./img/5.jpg" alt="广告五"></li>
+            <li><img src="./img/1.jpg" alt="广告一"></li>
+        </ul>
+    </div>
+</body>
+</html>
